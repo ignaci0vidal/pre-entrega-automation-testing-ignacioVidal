@@ -34,7 +34,7 @@ La automatización incluye:
 ## Estructura del proyecto
 
 ```text
-pre-entrega-automation-testing-ignacioVidal
+pre-entrega-automation-testing-ignacio-vidal
 │
 ├── tests/
 │   └── test_saucedemo.py
@@ -131,8 +131,8 @@ El archivo `saucedemo_helpers.py` contiene funciones auxiliares como:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/ignaci0vidal/pre-entrega-automation-testing-ignacioVidal.git
-cd pre-entrega-automation-testing-ignacioVidal
+git clone https://github.com/ignaci0vidal/pre-entrega-automation-testing-ignacio-vidal.git
+cd pre-entrega-automation-testing-ignacio-vidal
 ```
 
 ### 2. Instalar dependencias

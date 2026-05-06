@@ -34,7 +34,7 @@ La automatización incluye:
 ## Estructura del proyecto
 
 ```text
-pre-entrega-automation-testing-ignacio-vidal/
+pre-entrega-automation-testing-ignacioVidal
 │
 ├── tests/
 │   └── test_saucedemo.py
@@ -131,8 +131,8 @@ El archivo `saucedemo_helpers.py` contiene funciones auxiliares como:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
-cd pre-entrega-automation-testing-ignacio-vidal
+git clone https://github.com/ignaci0vidal/pre-entrega-automation-testing-ignacioVidal.git
+cd pre-entrega-automation-testing-ignacioVidal
 ```
 
 ### 2. Instalar dependencias
@@ -151,18 +151,19 @@ py -m pytest -v
 
 ### Ejecutar tests y generar reporte HTML
 
-
+```bash
 py -m pytest tests/test_saucedemo.py -v --html=reports/reporte.html --self-contained-html
-
+```
 
 ## Reporte HTML
 
 El reporte HTML se genera dentro de la carpeta `reports/`.
 
-    Ruta esperada:
+Ruta esperada:
 
-        reports/reporte.html
-
+```text
+reports/reporte.html
+```
 
 Este archivo contiene el resultado de la ejecución de las pruebas automatizadas.
 
@@ -170,12 +171,23 @@ Este archivo contiene el resultado de la ejecución de las pruebas automatizadas
 
 El proyecto contempla dos tipos de evidencias:
 
-    1. Reporte HTML generado por Pytest.
-    2. Capturas de pantalla automáticas en caso de fallos.
+1. Reporte HTML generado por Pytest.
+2. Capturas de pantalla automáticas en caso de fallos.
 
-    Las capturas se guardan en la carpeta:
+Las capturas se guardan en la carpeta:
 
-        screenshots/
+```text
+screenshots/
+```
+
+## Datos de prueba utilizados
+
+Credenciales válidas de SauceDemo:
+
+```text
+Usuario: standard_user
+Contraseña: secret_sauce
+```
 
 
 ## Datos de prueba utilizados
@@ -204,7 +216,7 @@ Credenciales válidas de SauceDemo:
 - Uso de Selenium WebDriver.
 - Generación de reporte HTML.
 - README completo.
-- Proyecto preparado para subir a GitHub.
+- Proyecto subido a GitHub.
 
 
 ## Autor

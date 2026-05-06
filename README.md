@@ -146,7 +146,7 @@ py -m pip install -r requirements.txt
 ### Ejecutar todos los tests
 
 ```bash
-py -m pytest -v
+py -m pytest
 ```
 
 ### Ejecutar tests y generar reporte HTML

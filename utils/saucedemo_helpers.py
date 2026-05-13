@@ -28,7 +28,7 @@ def esperar_elemento_clickeable(driver, locator, tiempo=10):
 
 def login_valido(driver):
     """
-    Realiza el login en SauceDemo con credenciales válidas.
+    Realiza login válido en SauceDemo.
     """
     driver.get(URL_SAUCEDEMO)
 
@@ -44,7 +44,7 @@ def login_valido(driver):
 def tomar_captura(driver, nombre_base):
     """
     Guarda una captura de pantalla con fecha y hora.
-    Se puede usar como evidencia cuando falla un test.
+    Se usa como evidencia si falla un test.
     """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     ruta = f"screenshots/{nombre_base}_{timestamp}.png"

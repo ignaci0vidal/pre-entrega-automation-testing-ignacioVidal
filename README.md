@@ -34,10 +34,12 @@ La automatización incluye:
 ## Estructura del proyecto
 
 ```text
-pre-entrega-automation-testing-ignacio-vidal
+pre-entrega-automation-testing-ignacio-vidal/
 │
 ├── tests/
-│   └── test_saucedemo.py
+│   ├── test_login.py
+│   ├── test_inventory.py
+│   └── test_cart.py
 │
 ├── utils/
 │   ├── driver_factory.py
@@ -47,8 +49,10 @@ pre-entrega-automation-testing-ignacio-vidal
 │   └── reporte.html
 │
 ├── screenshots/
-│   └── capturas generadas en caso de fallo
+│   └── .gitkeep
 │
+├── conftest.py
+├── pytest.ini
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -93,21 +97,17 @@ Pasos automatizados:
 
 ## Organización del código
 
-El proyecto está dividido en archivos separados para mejorar la claridad y el mantenimiento.
+El proyecto está dividido en archivos separados para mejorar la claridad, el mantenimiento y la independencia de los tests.
 
 ### Carpeta `tests/`
 
 Contiene los casos de prueba automatizados.
 
-Archivo principal:
+Archivos principales:
 
-- `test_saucedemo.py`
-
-Este archivo incluye los tests de:
-
-- Login exitoso.
-- Validación del catálogo.
-- Agregado de producto al carrito.
+- `test_login.py`: valida el login exitoso.
+- `test_inventory.py`: valida el catálogo de productos y elementos principales de la interfaz.
+- `test_cart.py`: valida el agregado de un producto al carrito.
 
 ### Carpeta `utils/`
 
@@ -118,13 +118,24 @@ Archivos principales:
 - `driver_factory.py`
 - `saucedemo_helpers.py`
 
-El archivo `driver_factory.py` se encarga de crear y configurar el navegador.
+El archivo `driver_factory.py` se encarga de crear y configurar el navegador Chrome en modo incógnito.
 
 El archivo `saucedemo_helpers.py` contiene funciones auxiliares como:
 
 - Login válido.
 - Esperas explícitas.
 - Capturas de pantalla.
+
+### Archivo `conftest.py`
+
+Contiene fixtures reutilizables de Pytest:
+
+- `driver`: crea y cierra el navegador para cada test.
+- `login_in_driver`: inicia sesión antes de ejecutar tests que requieren estar dentro del inventario.
+
+### Archivo `pytest.ini`
+
+Define la configuración de Pytest y permite ejecutar las pruebas con un comando simple.
 
 ## Instalación de dependencias
 
@@ -149,10 +160,12 @@ py -m pip install -r requirements.txt
 py -m pytest
 ```
 
-### Ejecutar tests y generar reporte HTML
+El archivo `pytest.ini` ya incluye las opciones para ejecutar en modo verbose y generar el reporte HTML.
+
+### Comando equivalente sin usar la configuración automática
 
 ```bash
-py -m pytest tests/test_saucedemo.py -v --html=reports/reporte.html --self-contained-html
+py -m pytest tests -v --html=reports/reporte.html --self-contained-html
 ```
 
 ## Reporte HTML
@@ -189,14 +202,21 @@ Usuario: standard_user
 Contraseña: secret_sauce
 ```
 
+## Resultado de ejecución
 
-## Datos de prueba utilizados
+La suite automatizada ejecuta tres casos de prueba:
 
-Credenciales válidas de SauceDemo:
+```text
+tests/test_cart.py::test_agregar_primer_producto_al_carrito PASSED
+tests/test_inventory.py::test_catalogo_muestra_productos PASSED
+tests/test_login.py::test_login_exitoso PASSED
+```
 
-    Usuario: standard_user
-    Contraseña: secret_sauce
+Resultado esperado:
 
+```text
+3 passed
+```
 
 ## Criterios cumplidos de la pre-entrega
 
@@ -207,17 +227,22 @@ Credenciales válidas de SauceDemo:
 - Verificación del catálogo.
 - Validación de productos visibles.
 - Obtención del nombre y precio del primer producto.
+- Validación de menú, filtro y carrito.
 - Interacción con productos.
 - Agregado del primer producto al carrito.
 - Validación del contador del carrito.
 - Validación del producto dentro del carrito.
 - Organización del código en carpetas `tests/` y `utils/`.
+- Separación de casos de prueba en archivos independientes.
+- Uso de fixtures con `conftest.py`.
+- Uso de configuración con `pytest.ini`.
 - Uso de Pytest.
 - Uso de Selenium WebDriver.
 - Generación de reporte HTML.
+- Capturas automáticas en caso de fallos.
 - README completo.
 - Proyecto subido a GitHub.
 
-
 ## Autor
+
 Ignacio Vidal
